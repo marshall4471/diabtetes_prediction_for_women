@@ -10,7 +10,7 @@ def main():
   st.sidebar.header("Diabetes Risk Prediction for Females with the datset found on Kaggle")
   st.sidebar.text("This a Web app that tells you if you are a female whether you are at risk for Diabetes or not.")
   st.sidebar.header("Just fill in the information below")
-  st.sidebar.text("The NaiveBayes Classifier was used.")
+  st.sidebar.text("The AdaBoost Classifier was used.")
 
 
 
