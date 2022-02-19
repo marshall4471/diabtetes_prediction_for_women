@@ -7,28 +7,31 @@ model = pickle.load(open('model_pkl.pkl','rb'))
 
 
 def main():
-  st.sidebar.header("Stroke Risk Prediction")
-  st.sidebar.text("This a Web app that tells you the predicted wether you will have a stoke or not.")
+  st.sidebar.header("Diabetes Risk Prediction for Females with the datset found on Kaggle")
+  st.sidebar.text("This a Web app that tells you if you are a female whether you are at risk for Diabetes or not.")
   st.sidebar.header("Just fill in the information below")
   st.sidebar.text("The NaiveBayes Classifier was used.")
 
 
 
-  age = st.slider("Input Your age", 0, 100)
-  hypertension = st.slider("Input your if you have hypertension with 0 for no and 1 for yes",0,1)
-  heartdisease = st.slider("Input your if you have heartdisease with 0 for no and 1 for yes",0 ,1)
-  sugar = st.slider("Put your average glucose level",150.0, 300.000)
-  bmi = st.slider("Input your BMI",0.0,70.0)
+  Pregnancies = st.slider("Input Your Number of Pregnancies", 0, 16)
+  Glucose = st.slider("Input your Gluclose",74,200)
+  BloodPressure = st.slider("Input your Blood Pressure",30,130)
+  SkinThickness = st.slider("Input your Skin thickness",0, 100)
+  Insulin = st.slider("Input your Insulin",0,200)
+  BMI = st.slider("Input your BMI",14.0,60.0)
+  DiabetesPedigreeFunction = st.slider("Input your Diabetes Pedigree Function",0.0,6.0)
+  Age = st.slider("Input your Age",0, 100)
 
-  inputs = [[age,hypertension,heartdisease,sugar,bmi]]
+  inputs = [[Pregnancies, Glucose,BloodPressure,SkinThickness,Insulin, BMI, DiabetesPedigreeFunction, Age]]
 
   if st.button('Predict'):
     result = model.predict(inputs)
     updated_res = result.flatten().astype(int)
     if updated_res == 0:
-       st.write("Not very Proabable you will have a stoke soon but still take good care of yourself regardless")
+       st.write("Not very Proabable you will get Diabetes soon but still take good care of yourself regardless")
     else:
-       st.write("It is Probable you might have a stroke soon therfore you should take better care of yourself")
+       st.write("It is Probable you might get a Diabetes soon therfore you should take better care of yourself")
    
 
 
